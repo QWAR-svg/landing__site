@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    width: 100%;
+    .slider {
+        display: flex;
+        width: 100%;
+        position: relative;
+        .first {
+            background: url('../img/people1.jpg') no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: calc(100vh - 50px);
+        }
+
+        .second {
+            background: url('../img/people2.jpg') no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: calc(100vh - 50px);
+        }
+
+        .third {
+            background: url('../img/people3.jpg') no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: calc(100vh - 50px);
+        }
+
+
+
+        .info {
+            display: none;
+            color: white;
+            text-align: center;
+            font-size: 25px;
+            margin-top: 100px;
+        }
+
+        .active {
+            display: block;
+        }
+    }
+
+    &__nav {
+        background: blue;
+        height: 50px;
+        ul {
+            display: block;
+            list-style-type: disc;
+            margin-block-start: 0;
+            margin-block-end: 0;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 0px;
+        }
+       
+    }
+}
+
+
+button{
+    width: 200px;
+    height: 100px;
+}

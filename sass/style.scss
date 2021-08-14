@@ -1,68 +1,189 @@
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
 }
 
 .header {
+  width: 100%;
+  .slider {
+    display: flex;
     width: 100%;
-    .slider {
-        display: flex;
+    position: relative;
+    .first {
+      background: url("../img/people1.jpg") no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: calc(100vh - 80px);
+    }
+
+    .second {
+      background: url("../img/people2.jpg") no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: calc(100vh - 80px);
+    }
+
+    .third {
+      background: url("../img/people3.jpg") no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: calc(100vh - 80px);
+    }
+
+    .info {
+      display: none;
+      color: white;
+      text-align: center;
+      font-size: 25px;
+      margin-top: 100px;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .btn__right {
+      right: 50px;
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+      width: 6vmin;
+      height: 6vmin;
+      box-sizing: border-box;
+      position: absolute;
+      &::before {
+        content: "";
         width: 100%;
+        height: 100%;
+        border-width: 0.8vmin 0.8vmin 0 0;
+        border-style: solid;
+        border-color: #fafafa;
+        transition: 0.2s ease;
+        display: block;
+        transform-origin: 100% 0;
+      }
+
+      &:after {
+        content: "";
+        float: left;
         position: relative;
-        .first {
-            background: url('../img/people1.jpg') no-repeat;
-            background-size: cover;
-            width: 100%;
-            height: calc(100vh - 50px);
-        }
+        top: -100%;
+        width: 100%;
+        height: 100%;
+        border-width: 0 0.9vmin 0 0;
+        border-style: solid;
+        border-color: #fafafa;
+        transform-origin: 100% 0;
+        transition: 0.2s ease;
+      }
 
-        .second {
-            background: url('../img/people2.jpg') no-repeat;
-            background-size: cover;
-            width: 100%;
-            height: calc(100vh - 50px);
-        }
-
-        .third {
-            background: url('../img/people3.jpg') no-repeat;
-            background-size: cover;
-            width: 100%;
-            height: calc(100vh - 50px);
-        }
-
-
-
-        .info {
-            display: none;
-            color: white;
-            text-align: center;
-            font-size: 25px;
-            margin-top: 100px;
-        }
-
-        .active {
-            display: block;
-        }
+      &:hover::after {
+        transform: rotate(45deg);
+        border-color: rgb(41, 137, 175);
+        height: 120%;
+      }
+      &:hover::before {
+        border-color: rgb(25, 170, 184);
+        transform: scale(0.8);
+      }
     }
 
-    &__nav {
-        background: blue;
-        height: 50px;
-        ul {
-            display: block;
-            list-style-type: disc;
-            margin-block-start: 0;
-            margin-block-end: 0;
-            margin-inline-start: 0px;
-            margin-inline-end: 0px;
-            padding-inline-start: 0px;
-        }
-       
+    .btn__left {
+      left: 50px;
+      top: 50%;
+      transform: translateY(-50%) rotate(-135deg);
+      width: 6vmin;
+      height: 6vmin;
+      box-sizing: border-box;
+      position: absolute;
+      &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-width: 0.8vmin 0.8vmin 0 0;
+        border-style: solid;
+        border-color: #fafafa;
+        transition: 0.2s ease;
+        display: block;
+        transform-origin: 100% 0;
+      }
+
+      &:after {
+        content: "";
+        float: left;
+        position: relative;
+        top: -100%;
+        width: 100%;
+        height: 100%;
+        border-width: 0 0.8vmin 0 0;
+        border-style: solid;
+        border-color: #fafafa;
+        transform-origin: 100% 0;
+        transition: 0.2s ease;
+      }
+
+      &:hover::after {
+        transform: rotate(45deg);
+        border-color: rgb(79, 228, 42);
+        height: 120%;
+      }
+      &:hover::before {
+        border-color: rgb(57, 197, 68);
+        transform: scale(0.8);
+      }
     }
+
+    .description {
+      margin: 0 auto;
+      width: 200px;
+      height: 200px;
+      background: cornflowerblue;
+    }
+  }
+
+  &__nav {
+    background: rgb(142, 142, 187);
+    height: 80px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    ul {
+      list-style-type: disc;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      padding-inline-start: 0px;
+      display: flex;
+      text-decoration: none;
+      list-style-type: none;
+      justify-content: center;
+      li {
+        padding: 0px 30px 0px 30px;
+      }
+    }
+  }
 }
 
-
-button{
-    width: 200px;
-    height: 100px;
+.about {
+  min-height: 600px;
+  background: -webkit-linear-gradient(
+    45deg,
+    rgb(152, 207, 195) 30%,
+    rgb(168, 118, 233)
+  );
+  background: -moz-linear-gradient(
+    45deg,
+    rgb(152, 207, 195) 30%,
+    rgb(168, 118, 233)
+  );
+  background: linear-gradient(
+    45deg,
+    rgb(152, 207, 195) 30%,
+    rgb(168, 118, 233)
+  );
 }

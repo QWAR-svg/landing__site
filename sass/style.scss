@@ -1,6 +1,8 @@
 body {
-  margin: 0;
+  //margin: 0;
   padding: 0;
+  margin: 0;
+
 }
 
 .container {
@@ -8,12 +10,16 @@ body {
   margin: 0 auto;
 }
 
+
+
 .header {
   width: 100%;
+
   .slider {
     display: flex;
     width: 100%;
     position: relative;
+
     .first {
       background: url("../img/people1.jpg") no-repeat;
       background-size: cover;
@@ -55,6 +61,7 @@ body {
       height: 6vmin;
       box-sizing: border-box;
       position: absolute;
+
       &::before {
         content: "";
         width: 100%;
@@ -86,6 +93,7 @@ body {
         border-color: rgb(41, 137, 175);
         height: 120%;
       }
+
       &:hover::before {
         border-color: rgb(25, 170, 184);
         transform: scale(0.8);
@@ -100,6 +108,7 @@ body {
       height: 6vmin;
       box-sizing: border-box;
       position: absolute;
+
       &::before {
         content: "";
         width: 100%;
@@ -131,6 +140,7 @@ body {
         border-color: rgb(79, 228, 42);
         height: 120%;
       }
+
       &:hover::before {
         border-color: rgb(57, 197, 68);
         transform: scale(0.8);
@@ -151,8 +161,8 @@ body {
     align-items: center;
     display: flex;
     justify-content: center;
+
     ul {
-      list-style-type: disc;
       margin-block-start: 0;
       margin-block-end: 0;
       margin-inline-start: 0px;
@@ -162,6 +172,7 @@ body {
       text-decoration: none;
       list-style-type: none;
       justify-content: center;
+
       li {
         padding: 0px 30px 0px 30px;
       }
@@ -172,18 +183,18 @@ body {
 .about {
   min-height: 600px;
   background: -webkit-linear-gradient(
-    45deg,
-    rgb(152, 207, 195) 30%,
-    rgb(168, 118, 233)
+                  45deg,
+                  rgb(152, 207, 195) 30%,
+                  rgb(168, 118, 233)
   );
   background: -moz-linear-gradient(
-    45deg,
-    rgb(152, 207, 195) 30%,
-    rgb(168, 118, 233)
+                  45deg,
+                  rgb(152, 207, 195) 30%,
+                  rgb(168, 118, 233)
   );
   background: linear-gradient(
-    45deg,
-    rgb(152, 207, 195) 30%,
-    rgb(168, 118, 233)
+                  45deg,
+                  rgb(152, 207, 195) 30%,
+                  rgb(168, 118, 233)
   );
 }

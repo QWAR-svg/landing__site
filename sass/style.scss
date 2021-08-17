@@ -59,7 +59,7 @@ body {
       height: 6vmin;
       box-sizing: border-box;
       position: absolute;
-
+      cursor: pointer;
       &::before {
         content: "";
         width: 100%;
@@ -106,6 +106,7 @@ body {
       height: 6vmin;
       box-sizing: border-box;
       position: absolute;
+      cursor: pointer;
 
       &::before {
         content: "";
@@ -145,18 +146,38 @@ body {
       }
     }
 
-    .description {
+    .photo__people{
+      max-width: 600px;
+      height: 300px;
       margin: 0 auto;
-      width: 200px;
-      height: 200px;
-      background: cornflowerblue;
+      background: floralwhite;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      align-items: center;
+      justify-items: center;
+      gap: 30px;
+      .description__photo {
+        width: 150px;
+        height: 100px;
+        background: red;
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+          cursor: pointer;
+        }
+
+      }
+
     }
+
   }
 
   &__nav {
     .shop {
       position: absolute;
       right: 50px;
+      cursor: pointer;
       .counter {
         position: absolute;
         top: 70%;
@@ -275,7 +296,7 @@ body {
     .buy__item {
       width: 250px;
       min-height: 500px;
-      background: grey;
+      background: #98cfc3;
       position: relative;
       .photo {
         height: 200px;
@@ -326,6 +347,7 @@ body {
 }
 
 .modal {
+
   width: 800px;
   height: 400px;
   background: white;
@@ -340,9 +362,19 @@ body {
 
 
   &__wrapper {
-    background: red;
+    //background: red;
     height: 40px;
-    width: 80px;
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .product__item {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    background: #98cfc3;
+    align-items: center;
+    justify-content: space-around;
   }
 
 }
@@ -355,6 +387,7 @@ body {
   width: 32px;
   height: 32px;
   opacity: 0.3;
+  cursor: pointer;
 }
 .close:hover {
   opacity: 1;
@@ -374,6 +407,20 @@ body {
   transform: rotate(-45deg);
 }
 
+.plus {
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.minus {
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.number {
+  font-size: 25px;
+}
+
 .overlay {
   position: absolute;
   top: 0;
@@ -383,4 +430,86 @@ body {
   background: purple;
   opacity: 0.37;
 
+}
+
+.calc {
+  display: flex;
+  width: 60px;
+  justify-content: space-between;
+}
+.wrapper__text {
+  display: flex;
+}
+
+button {
+  cursor: pointer;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 1600px;
+  height: 90vh;
+  max-height: 800px;
+  border-radius: 20px;
+  background: rgba(211, 215, 159, 0.75);
+  //justify-content: center;
+  //align-items: center;
+  z-index: 5;
+  overflow: hidden;
+  transition: 1s;
+}
+
+.top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: #000;
+  text-align: center;
+  line-height: 50px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f00;
+}
+
+.arrow-btn__left {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+
+}
+
+.arrow-btn__right{
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.large-image {
+  height: 80%;
+  width: 80%;
+  object-fit: contain;
+  margin: 0 auto;
+  display: flex;
+  padding-top: 80px;
 }

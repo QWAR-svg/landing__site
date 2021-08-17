@@ -41,13 +41,12 @@ const modalWrapper  = document.querySelector('.modal__wrapper');
 let zero = 0
 buy.addEventListener('click', (e) => {
 
-        if (e.target.parentNode.className == "buy__item" && e.target.tagName == "BUTTON") {
-            let product = e.target.parentNode.childNodes[3].innerText;
+    if (e.target.parentNode.className == "buy__item" && e.target.tagName == "BUTTON") {
+        let product = e.target.parentNode.childNodes[3].innerText;
 
-            let x = pushData(product);
-            modalWrapper.append(x);
-        }
-
+        let x = pushData(product);
+        modalWrapper.append(x);
+    }
 })
 
 function pushData(product) {
@@ -63,6 +62,31 @@ function pushData(product) {
     const count = document.createElement('div');
     count.classList.add("product__count");
 
+
+    const wrap = document.createElement('div');
+    wrap.classList.add('calc');
+    const plus = document.createElement('div');
+    plus.classList.add('plus');
+
+    plus.innerText = "+"
+
+    let number = document.createElement('span');
+    number.classList.add("number");
+    number.innerText = "1";
+
+    const minus = document.createElement('div');
+    minus.classList.add('minus');
+
+    minus.innerText = "-"
+
+    let deleteItem = document.createElement('div');
+    deleteItem.innerText = "X";
+    deleteItem.classList.add("delete__item");
+
+    wrap.append(minus);
+    wrap.append(number);
+    wrap.append(plus);
+
     let testArr = [];
     let products = document.querySelectorAll('.product__title');
     products.forEach((item) => {
@@ -70,27 +94,44 @@ function pushData(product) {
     })
 
     if (testArr.includes(product)) {
-
+        return ""
     } else {
-        counter.innerText = ++zero;
+        counter.innerText = counter.innerText = `${parseInt(counter.innerText) + 1}`;
         count.innerText = `${counter.innerText}`;
-        temp.append(title);
-        temp.append(count);
+        const wrapperText = document.createElement('div');
+        wrapperText.classList.add('wrapper__text');
+        wrapperText.append(count);
+        wrapperText.append(title);
+        temp.append(wrapperText);
+        temp.append(wrap);
+        temp.append(deleteItem);
+
+        return temp;
     }
 
-    return temp;
+
 }
 
 const allBtns = document.querySelectorAll('.buy__btn');
 const modalWindow = document.querySelector('.modal');
 const closeBtn = document.querySelector('.close');
 const overlay = document.querySelector('.overlay');
+const shop = document.querySelector('.shop');
+
+shop.addEventListener('click', () => {
+    modalWindow.classList.remove('hiding');
+    overlay.classList.remove('hiding');
+})
 
 allBtns.forEach((item) => {
     item.addEventListener('click' , () => {
         modalWindow.classList.remove('hiding');
         overlay.classList.remove('hiding');
+
+
     })
+
+
 })
 
 closeBtn.addEventListener('click', () => {
@@ -102,7 +143,82 @@ closeBtn.addEventListener('click', () => {
 overlay.addEventListener('click', () =>{
     modalWindow.classList.add('hiding');
     overlay.classList.add('hiding');
+    popUp.classList.add('hiding');
+
 })
+
+let changeNum = 0;
+const moodal = document.querySelector('.modal');
+moodal.addEventListener('click', (e) => {
+
+    if (e.target.className === "plus") {
+        // console.log(e.target.parentNode.childNodes[1])
+        e.target.parentNode.childNodes[1].innerText = `${parseInt(e.target.parentNode.childNodes[1].innerText) + 1}`;
+    }
+
+    if (e.target.className === "minus") {
+        // console.log(e.target.parentNode.childNodes[1])
+        e.target.parentNode.childNodes[1].innerText = `${parseInt(e.target.parentNode.childNodes[1].innerText) - 1}`;
+    }
+
+    if (e.target.className === "delete__item") {
+        e.target.parentNode.remove();
+        counter.innerText = `${parseInt(counter.innerText) - 1}`;
+    }
+})
+
+const photos = document.querySelectorAll('.description__photo');
+const imgList = document.querySelectorAll('.description__photo img');
+const largeImg = document.querySelector('.large-image');
+const popUp = document.querySelector('.popup');
+const closingBtn = document.querySelector('.close-btn');
+const arrowLeft = document.querySelector('.arrow-btn__left');
+const arrowRight = document.querySelector('.arrow-btn__right');
+
+
+photos.forEach((photo, i) => {
+    photo.addEventListener('click', () => {
+        setUpPhoto(i)
+        popUp.classList.remove('hiding');
+        overlay.classList.remove('hiding');
+    })
+})
+
+function setUpPhoto(id) {
+    let temp = imgList[id].src.match(/img.*/g);
+    largeImg.src = `./${temp[0]}`;
+    console.log(largeImg)
+
+}
+
+
+closingBtn.addEventListener('click', () => {
+    popUp.classList.add('hiding');
+    overlay.classList.add('hiding');
+})
+
+
+let counting = 0;
+arrowLeft.addEventListener('click', () => {
+
+    if (counting === 0) {
+        counting = imgList.length - 1;
+        setUpPhoto(counting)
+    } else {
+        setUpPhoto(--counting);
+    }
+})
+
+arrowRight.addEventListener('click', () => {
+    if (counting === imgList.length - 1) {
+        counting = 0;
+        setUpPhoto(counting)
+    } else {
+        setUpPhoto(++counting);
+    }
+})
+
+
 
 
 

@@ -4,6 +4,8 @@ const slide  = document.querySelector('.slide');
 const array = ['first', 'second', 'third'];
 const blocks = document.querySelectorAll('.info');
 
+
+
 let z = 0;
 btn__right.addEventListener('click', () => {
     slide.classList.remove("first", "second", "third");
@@ -218,6 +220,70 @@ arrowRight.addEventListener('click', () => {
     }
 })
 
+const headSite = document.querySelector('.header__nav');
+
+const scrollPosition = window.pageYOffset;
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > lastScroll) {
+        headSite.classList.add('hiding');
+    } else {
+        headSite.classList.remove('hiding');
+    }
+
+
+    lastScroll = window.pageYOffset;
+
+})
+
+const searchText = document.querySelector('.search__text');
+const btnFind = document.querySelector('.find');
+const searchWrapper = document.querySelector('.search__wrapper');
+
+btnFind.addEventListener('click', async () => {
+    searchWrapper.textContent = '';
+    let text = searchText.value;
+
+    let getResult = await getData(text);
+    console.log(getResult.books)
+
+    renderBooks(getResult.books);
+
+})
+
+async function getData(value) {
+    const data = await fetch(`https://api.itbook.store/1.0/search/${value}`);
+    return await data.json();
+}
+
+function renderBooks(array) {
+    if (array.length === 0) {
+        let temp = document.createElement('div')
+        temp.classList.add('item__search');
+        temp.textContent = "NOTHING FOUND";
+        searchWrapper.append(temp);
+    } else {
+        array.forEach(item => {
+            let temp = document.createElement('div')
+            temp.classList.add('item__search');
+            temp.innerHTML = `
+                <img class ="cover__img" src=${item.image} alt="" />
+                <div class="title">${item.title}</div>
+                <div class="price">${item.price}</div>
+        `;
+            searchWrapper.append(temp);
+        })
+    }
+}
+
+
+// async function startData(func1, func2) {
+//     let getResult = await func1("mongodb");
+//
+//     func2(getResult.books);
+// }
+//
+// startData(getData, renderBooks);
 
 
 

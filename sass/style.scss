@@ -103,7 +103,7 @@ body {
 
 
     .btn__right {
-      right: 50px;
+      right: 60px;
       top: 50%;
       transform: translateY(-50%) rotate(45deg);
       width: 6vmin;
@@ -607,6 +607,22 @@ h3 {
     width: 100px;
     height: 50px;
     font-size: 35px;
+    outline: none;
+    //border-radius: 25px;
+
+
+  }
+  input{
+    border-radius: 25px;
+    outline: none;
+    padding-left: 10px;
+  }
+
+  button {
+    color: mediumpurple;
+    border-radius: 15px;
+    background-color: #98cfc3;
+    margin-left: 20px;
   }
 
   .find {
@@ -685,10 +701,45 @@ h3 {
     display: flex;
     justify-content: flex-end;
     &-wrapper {
+      display: flex;
+      border-radius: 30px;
       margin-top: 100px;
-      height: 400px;
-      background: #2989af;
+      min-height: 400px;
+      background: #9584ae;
       width: 700px;
+      input {
+        height: 40px;
+        margin-bottom: 3px;
+        font-size: 20px;
+        border-radius: 25px;
+        padding-left: 10px;
+        max-width: 300px;
+        outline: none;
+      }
+
+      textarea {
+        margin-top: 5px;
+        width: 300px;
+        height: 150px;
+        resize: none;
+
+      }
+      .left {
+        width: 40%;
+        height: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .right {
+        display: flex;
+        flex-direction: column;
+        margin-left: 50px;
+        //justify-content: center;
+
+      }
     }
 
   }

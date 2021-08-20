@@ -146,6 +146,7 @@ overlay.addEventListener('click', () =>{
     modalWindow.classList.add('hiding');
     overlay.classList.add('hiding');
     popUp.classList.add('hiding');
+    burgerMenu.classList.remove("burger__menu-active");
 
 })
 
@@ -284,6 +285,22 @@ function renderBooks(array) {
 // }
 //
 // startData(getData, renderBooks);
+
+const btnBurger = document.querySelector('.burger');
+const burgerMenu = document.querySelector('.burger__menu');
+
+btnBurger.addEventListener('click', () => {
+    burgerMenu.classList.add("burger__menu-active");
+    overlay.classList.remove("hiding");
+})
+
+const burgerClose = document.querySelector('.burger__close-btn');
+
+burgerClose.addEventListener('click', () => {
+    burgerMenu.classList.remove("burger__menu-active");
+    overlay.classList.add("hiding");
+})
+
 
 
 
